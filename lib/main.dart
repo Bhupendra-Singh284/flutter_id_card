@@ -16,17 +16,11 @@ class Myapp extends StatefulWidget {
 }
 
 Thememanager _thememanager = Thememanager();
-Thememanager Return_theme() {
+Thememanager returntheme() {
   return _thememanager;
 }
 
 class _MyappState extends State<Myapp> {
-  @override
-  void dispose() {
-    _thememanager.removeListener(themeListener);
-    super.dispose();
-  }
-
   @override
   void initState() {
     _thememanager.addListener(themeListener);

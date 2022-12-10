@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:id_card/view/components/icon_container.dart';
 
-class Pagelayout extends StatefulWidget {
+class Pagelayout extends StatelessWidget {
   final String name;
   final String nickname;
   final String desc;
@@ -16,11 +16,6 @@ class Pagelayout extends StatefulWidget {
       required this.nickname,
       required this.rating});
 
-  @override
-  State<Pagelayout> createState() => _PagelayoutState();
-}
-
-class _PagelayoutState extends State<Pagelayout> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,7 +32,7 @@ class _PagelayoutState extends State<Pagelayout> {
               width: 1,
             )),
             image: DecorationImage(
-              image: AssetImage(widget.imagename),
+              image: AssetImage(imagename),
               fit: BoxFit.cover,
             ),
           ),
@@ -45,7 +40,7 @@ class _PagelayoutState extends State<Pagelayout> {
         Padding(
           padding: const EdgeInsets.all(15),
           child: Text(
-            widget.name,
+            name,
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -65,7 +60,7 @@ class _PagelayoutState extends State<Pagelayout> {
               children: [
                 Expanded(
                   child: Text(
-                    widget.nickname,
+                    nickname,
                     textDirection: TextDirection.ltr,
                     style: const TextStyle(
                         color: Color.fromARGB(255, 72, 71, 71), fontSize: 16),
@@ -74,7 +69,7 @@ class _PagelayoutState extends State<Pagelayout> {
                 Row(
                   children: [
                     const Icon(Icons.star, color: Colors.red),
-                    Text(widget.rating)
+                    Text(rating)
                   ],
                 ),
               ],
@@ -96,7 +91,7 @@ class _PagelayoutState extends State<Pagelayout> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Text(
-            widget.desc,
+            desc,
             style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,

@@ -3,14 +3,9 @@ import 'package:id_card/view/components/page_container.dart';
 import 'package:id_card/view/second_page.dart';
 import 'package:page_transition/page_transition.dart';
 
-class ThirdRoute extends StatefulWidget {
+class ThirdRoute extends StatelessWidget {
   const ThirdRoute({super.key});
 
-  @override
-  State<ThirdRoute> createState() => _ThirdRouteState();
-}
-
-class _ThirdRouteState extends State<ThirdRoute> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,7 +14,7 @@ class _ThirdRouteState extends State<ThirdRoute> {
         if (details.delta.dx > 0) {
           Navigator.of(context).push(PageTransition(
               child: const SecondRoute(),
-              childCurrent: this.widget,
+              childCurrent: this,
               type: PageTransitionType.leftToRightJoined,
               duration: const Duration(milliseconds: 550)));
         }

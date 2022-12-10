@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    Thememanager _CurrentTheme = Return_theme();
+    Thememanager currentTheme = returntheme();
     return GestureDetector(
         onVerticalDragUpdate: (details) {},
         onPanUpdate: (details) {
@@ -45,9 +45,9 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               (Switch(
-                  value: _CurrentTheme.thememode == ThemeMode.dark,
+                  value: currentTheme.thememode == ThemeMode.dark,
                   onChanged: (newvalue) {
-                    _CurrentTheme.toggleTheme(newvalue);
+                    currentTheme.toggleTheme(newvalue);
                     setState(() {});
                   }))
             ]),
