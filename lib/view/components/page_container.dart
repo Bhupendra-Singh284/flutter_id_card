@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:id_card/view/components/icon_container.dart';
+import 'package:id_card/view/home.dart';
 
-class Pagelayout extends StatelessWidget {
+class Pagelayout extends StatefulWidget {
   final String name;
   final String nickname;
   final String desc;
   final String imagename;
   final String rating;
+  final bool _cval = togglevalue();
 
-  const Pagelayout(
+  Pagelayout(
       {super.key,
       required this.desc,
       required this.imagename,
@@ -16,6 +18,11 @@ class Pagelayout extends StatelessWidget {
       required this.nickname,
       required this.rating});
 
+  @override
+  State<Pagelayout> createState() => _PagelayoutState();
+}
+
+class _PagelayoutState extends State<Pagelayout> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -32,7 +39,7 @@ class Pagelayout extends StatelessWidget {
               width: 1,
             )),
             image: DecorationImage(
-              image: AssetImage(imagename),
+              image: AssetImage(widget.imagename),
               fit: BoxFit.cover,
             ),
           ),
@@ -40,7 +47,7 @@ class Pagelayout extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(15),
           child: Text(
-            name,
+            widget.name,
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -49,10 +56,11 @@ class Pagelayout extends StatelessWidget {
         ),
         Container(
           height: 70,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               border: Border(
                   bottom: BorderSide(
-                      color: Color.fromARGB(255, 70, 68, 68), width: 1.8))),
+                      color: widget._cval ? Colors.amber : Colors.black,
+                      width: 1.8))),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
@@ -60,16 +68,18 @@ class Pagelayout extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    nickname,
+                    widget.nickname,
                     textDirection: TextDirection.ltr,
-                    style: const TextStyle(
-                        color: Color.fromARGB(255, 72, 71, 71), fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ),
                 Row(
                   children: [
-                    const Icon(Icons.star, color: Colors.red),
-                    Text(rating)
+                    Icon(
+                      Icons.star,
+                      color: widget._cval ? Colors.orange : Colors.red,
+                    ),
+                    Text(widget.rating)
                   ],
                 ),
               ],
@@ -91,7 +101,7 @@ class Pagelayout extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Text(
-            desc,
+            widget.desc,
             style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,

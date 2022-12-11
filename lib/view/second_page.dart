@@ -27,14 +27,18 @@ class SecondRoute extends StatelessWidget {
               duration: const Duration(milliseconds: 550)));
         }
       },
-      child: const Scaffold(
-        body: Pagelayout(
-            desc:
-                "${'"'}Kakashi is one of Konoha's most talented ninja, regularly looked to for advice and leadership despite his personal dislike of responsibility. To his students on Team 7, Kakashi emphasises the importance of teamwork; he himself received this lesson, along with the Sharingan, from his childhood friend, Obito Uchiha. After the Fourth Shinobi World War, Kakashi becomes Konoha's Sixth Hokage Kakashi was the teacher of naruto and sasuke${'"'}",
-            imagename: "images/kakashi_2.jpg",
-            name: "kakashi Hatake",
-            nickname: "The Copy Ninja, Kakashi of the Sharingan",
-            rating: "4.5"),
+      child: Scaffold(
+        backgroundColor: togglevalue() ? Colors.black : Colors.white,
+        body: DefaultTextStyle(
+          style: TextStyle(color: togglevalue() ? Colors.white : Colors.black),
+          child: Pagelayout(
+              desc:
+                  "${'"'}Kakashi is one of Konoha's most talented ninja, regularly looked to for advice and leadership despite his personal dislike of responsibility. To his students on Team 7, Kakashi emphasises the importance of teamwork; he himself received this lesson, along with the Sharingan, from his childhood friend, Obito Uchiha. After the Fourth Shinobi World War, Kakashi becomes Konoha's Sixth Hokage Kakashi was the teacher of naruto and sasuke${'"'}",
+              imagename: "images/kakashi_2.jpg",
+              name: "kakashi Hatake",
+              nickname: "The Copy Ninja, Kakashi of the Sharingan",
+              rating: "4.5"),
+        ),
       ),
     );
   }
