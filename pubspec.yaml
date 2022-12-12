@@ -61,16 +61,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-     - images/minato.png
-     - images/back.jpg
-     - images/minato_2.png
-     - images/kakashi.jpg
-     - images/jiraiya.jpg
-     - images/jiraiya_3.png
-     - images/jiraiya_4.jpg
-     - images/minato_3.jpg
-     - images/minato_4.jpg
-     - images/kakashi_2.jpg
+     - assets/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
