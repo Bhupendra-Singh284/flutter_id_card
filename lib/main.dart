@@ -19,6 +19,8 @@ class _MyappState extends State<Myapp> {
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: HomePage());
+        title: 'ID Card App',
+        debugShowCheckedModeBanner: false,
+        home: HomePage());
   }
 }
