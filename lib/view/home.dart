@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:id_card/view/components/page_layout.dart';
 import 'package:id_card/view/components/third_page.dart';
 import 'package:id_card/view/second_page.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:id_card/core/preferences_util.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,9 +11,14 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-bool isOn = false;
+String val = "toggleValue";
+bool isOn = Preferences.getBool(val, false);
 
 class _HomePageState extends State<HomePage> {
+  void setData(bool value) async {
+    await Preferences.setBool(val, value);
+  }
+
   @override
   Widget build(BuildContext context) {
     return PageView(
@@ -49,6 +54,7 @@ class _HomePageState extends State<HomePage> {
                         Switch(
                             value: isOn,
                             onChanged: (newvalue) {
+                              setData(newvalue);
                               setState(() {
                                 isOn = !isOn;
                               });

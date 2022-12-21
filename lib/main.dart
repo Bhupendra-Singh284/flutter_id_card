@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:id_card/core/preferences_util.dart';
 import 'package:id_card/view/home.dart';
 import 'package:flutter/services.dart';
 
-void main() {
+void main() async {
+  print("object");
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await Preferences.init();
   runApp(const Myapp());
 }
 
