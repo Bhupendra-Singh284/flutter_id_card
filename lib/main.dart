@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:id_card/core/preferences_util.dart';
 import 'package:id_card/view/home.dart';
 import 'package:flutter/services.dart';
 
 void main() async {
-  print("object");
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // Init code here
   await Preferences.init();
+
+  FlutterNativeSplash.remove();
   runApp(const Myapp());
 }
 
